@@ -8,7 +8,7 @@
       <img
         :alt="name"
         @click="emit('open-details')"
-        class="cursor-pointer relative hover:scale-110 scale-100 duration-150 transform h-52 z-20 w-52 rounded-full"
+        class="cursor-pointer relative hover:scale-100 scale-95 duration-150 transform z-20 rounded-full"
         :src="src"
       />
     </div>
@@ -44,3 +44,10 @@ const getRandomThumbColor = () => {
   return color
 }
 </script>
+
+<style scoped>
+img {
+  height: 17em;
+  width: 17em;
+}
+</style>
