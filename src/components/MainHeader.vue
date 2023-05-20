@@ -22,11 +22,11 @@
           type="search"
           name="search"
           placeholder="Search"
-          v-model="value"
-          @keyup.enter="$emit('search-drink')"
+          v-model="cocktailsValue"
+          @keyup.enter="searchCocktail"
         />
         <button
-          @click="$emit('search-drink')"
+          @click="searchCocktail"
           type="submit"
           class="absolute right-0 top-0 mt-5 mr-4"
         >
@@ -55,15 +55,14 @@
 </template>
 
 <script setup lang="ts">
-import {computed} from 'vue'
-interface Props {
-  modelValue: string;
-}
-const props = defineProps<Props>();
-const emit = defineEmits(['update:modelValue', 'search-drink']);
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+const cocktailsValue = ref('')
 
-const value = computed({
-  get: () => props.modelValue,
-  set: (value) => emit('update:modelValue', value)
-})
+const router = useRouter()
+
+const searchCocktail = async () => {
+  await router.push({name: 'search', params: {search : cocktailsValue.value}})
+  cocktailsValue.value = ''
+}
 </script>
