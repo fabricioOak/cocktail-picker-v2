@@ -6,7 +6,7 @@
       <div
         class="mt-10 flex flex-col justify-center h-3/4 max-h-full items-center md:flex-row py-8"
       >
-        <DrinkThumb :src="drinks.strDrinkThumb" :name="drinks.strDrink"/>
+        <DrinkThumb :src="drinks.strDrinkThumb" :name="drinks.strDrink" @open-details="getCocktilDetails"/>
         <div
           class="flex flex-col items-center justify-center w-full h-full py-6 pl-10 mb-6 md:mb-0 md:w-1/2"
         >
@@ -64,11 +64,9 @@ import { useRouter } from 'vue-router';
 import {useCocktailStore} from '@/stores/cocktailStore'
 
 import DrinkThumb from '@/components/DrinkThumb.vue';
-import MainHeader from '@/components/MainHeader.vue'
 import AlphabetSelection from '@/components/AlphabetSelection.vue'
 
 const router = useRouter()
-const inputSearch = ref('')
 const isLoading = ref(false)
 const drinks = ref({}) as any
 const cocktailStore = useCocktailStore()
@@ -84,6 +82,10 @@ const fetchCocktails = async () => {
   }).finally(() => {
     isLoading.value = false
   })
+}
+
+const getCocktilDetails = () => {
+  router.push({name: 'details', params: {id: drinks.value.idDrink}})
 }
 
 fetchCocktails()
