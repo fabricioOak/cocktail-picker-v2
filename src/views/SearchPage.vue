@@ -84,49 +84,4 @@ const getCocktail = async () => {
   const getDetails = async (id: string) => {
     router.push({name: 'details', params: {id: id} })
   }
-
-// getDetails (id) {
-//   this.$router.push({
-//     name: 'details',
-//     params: { id }
-//   })
-
-// export default {
-//   data () {
-//     return {
-//       drinks: [],
-//       loading: false
-//     }
-//   },
-//   mounted () {
-//     this.getCocktail()
-//   },
-//   methods: {
-//     getCocktail () {
-//       this.loading = true
-//       this.$store
-//         .dispatch('searchCocktail', {
-//           name: this.$route.params.search
-//         })
-//         .then((response) => {
-//           this.drinks = response.data.drinks
-//           console.log(this.drinks)
-//           this.loading = false
-//         })
-//         .catch((error) => {
-//           this.error = error
-//         })
-//     },
-//     searchCocktail () {
-//       this.$router.push({ name: 'Search', params: { search: this.search } })
-//       this.getCocktail()
-//     },
-//     getDetails (id) {
-//       this.$router.push({
-//         name: 'Cocktail',
-//         params: { id: id }
-//       })
-//     }
-//   }
-// }
 </script>
