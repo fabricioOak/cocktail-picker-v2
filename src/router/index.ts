@@ -18,6 +18,11 @@ const router = createRouter({
       path: '/details/:id',
       name: 'details',
       component: () => import('@/views/DetailsPage.vue')
+    },
+    {
+      path: '/letter-search/:letter',
+      name: 'letter-search',
+      component: () => import('@/views/LetterSearch.vue')
     }
   ]
 })

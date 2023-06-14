@@ -21,7 +21,7 @@ for (let i = 65; i < 91; i++) {
 
 const warpToLettersSearch = (letter: string) => {
   console.log(letter)
-  router.push({ name: 'LetterSearch', params: { letter } })
+  router.push({ name: 'letter-search', params: { letter } })
 }
 
 </script>
